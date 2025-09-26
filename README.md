@@ -28,10 +28,10 @@ Open [http://localhost:8080](http://localhost:8080) in your browser.
 
 ```bash
 # build image
-docker build -t go-ws-server .
+docker build -t go .
 
 # run container
-docker run -p 8080:8080 go-ws-server
+docker run -p 8080:8080 go-ws
 ```
 
 ---

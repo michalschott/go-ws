@@ -1,0 +1,17 @@
+Thank you for installing {{ .Chart.Name }}.
+
+To access the service:
+
+1. If you enabled an ingress, add an entry to /etc/hosts for the host(s) you configured:
+
+{{- range .Values.ingress.hosts }}
+- Host: {{ .host }}
+{{- end }}
+
+2. Otherwise port-forward the service:
+
+kubectl port-forward svc/{{ include "go-ws.fullname" . }} {{ .Values.service.port }}:{{ .Values.service.port }}
+
+Test WebSocket (from the machine where port-forwarding or ingress is reachable):
+
+websocat ws://<host-or-ip>:{{ .Values.service.port }}/ws
